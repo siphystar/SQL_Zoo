@@ -46,6 +46,16 @@ SELECT name, CASE WHEN continent='Oceania' THEN 'Australasia'
   FROM world
  WHERE name LIKE 'N%';
 
+ --*12. Show the name and the capital where the first letters of each match. Don't include countries where the name and the capital are the same word.
+SELECT name, capital 
+FROM world
+WHERE LEFT(name, 1) = LEFT(capital, 1) XOR name = capital;
+
+--*13. Find the country that has all the vowels and no spaces in its name.
+SELECT name 
+FROM world
+WHERE name LIKE '%a%' AND name LIKE '%e%' AND name LIKE '%i%' AND name LIKE '%o%' AND name LIKE '%u%' AND name NOT LIKE '% %';
+
  --12. Show the name and the continent - but substitute Eurasia for Europe and Asia; substitute America - for each country in North America or South America or Caribbean. Show countries beginning with A or B
 
 SELECT name, CASE 
